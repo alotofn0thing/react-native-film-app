@@ -2,17 +2,20 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import { FC } from 'react';
-import { Favorites } from '../components/screens/Favorites/Favorites';
-import { Home } from '../components/screens/Home/Home';
+import { Details } from '../components/screens/Details/Details';
+import { TabNavigator } from './TabNavigator';
+import { TypeRootStackParamList } from './types';
 
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator<TypeRootStackParamList>();
 
 export const Navigation: FC = () => {
 	return (
 		<NavigationContainer>
 			<Stack.Navigator screenOptions={{ headerShown: false }}>
-				<Stack.Screen name='Home' component={Home} />
-				<Stack.Screen name='Favorites' component={Favorites} />
+				<Stack.Group>
+					<Stack.Screen name='Main' component={TabNavigator} />
+					<Stack.Screen name='Details' component={Details} />
+				</Stack.Group>
 			</Stack.Navigator>
 		</NavigationContainer>
 	);

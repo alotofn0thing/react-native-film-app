@@ -1,4 +1,4 @@
 export type TypeRootStackParamList = {
-	Home: undefined;
-	Favorites: undefined;
+	Main: undefined;
+	Details: undefined;
 };
